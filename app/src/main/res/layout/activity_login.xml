@@ -5,26 +5,54 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_gravity="center_horizontal"
+    android:background="@drawable/login_background"
     >
+
+    <TextView
+        android:id="@+id/singin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="Music App"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
 
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre de usuario" />
+        android:layout_marginTop="30dp"
+        android:background="#20ffffff"
+        android:drawableLeft="@drawable/baseline_person_pin_24"
+        android:drawablePadding="10dp"
+        android:hint="USUARIO"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:layout_marginTop="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_password_24"
+        android:drawablePadding="10dp"
+        android:hint="CONTRASEÑA"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
     <CheckBox
         android:id="@+id/checkBoxRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recordar usuario" />
+        android:text="Recordar Usuario"
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -34,13 +62,19 @@
             android:id="@+id/buttonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Iniciar sesión" />
+            android:text="Iniciar sesión"
+            android:layout_weight=".5"
+            android:backgroundTint="@color/black"
+            android:layout_marginHorizontal="10dp" />
 
         <Button
             android:id="@+id/buttonRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrarme" />
+            android:text="Registrarme"
+            android:layout_weight=".5"
+            android:backgroundTint="@color/black"
+            android:layout_marginHorizontal="10dp" />
 
     </LinearLayout>
 

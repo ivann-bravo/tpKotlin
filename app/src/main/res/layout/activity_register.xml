@@ -3,31 +3,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/login_background">
+
+    <TextView
+        android:id="@+id/singin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="Registro"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
 
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre de Usuario" />
+        android:layout_marginTop="30dp"
+        android:background="#20ffffff"
+        android:drawableLeft="@drawable/baseline_person_pin_24"
+        android:drawablePadding="10dp"
+        android:hint="USUARIO"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo Electrónico" />
+        android:layout_marginTop="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_email_24"
+        android:drawablePadding="10dp"
+        android:hint="CORREO ELECTRÓNICO"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:layout_marginTop="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/baseline_password_24"
+        android:drawablePadding="10dp"
+        android:hint="CONTRASEÑA"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
-    <Button
-        android:id="@+id/buttonRegister"
+    <LinearLayout
+        android:weightSum="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar" />
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        >
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar Datos"
+            android:layout_weight=".5"
+            android:backgroundTint="@color/black"
+            android:layout_marginHorizontal="10dp"
+            />
+
+
+    </LinearLayout>
 
 </LinearLayout>

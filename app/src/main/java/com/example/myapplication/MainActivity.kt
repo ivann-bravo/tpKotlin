@@ -19,7 +19,13 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("Preferencia", MODE_PRIVATE)
+
+        val mainFragment = MainFragment()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container, mainFragment)
+            .commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
