@@ -16,6 +16,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".AlbumAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".AlbumListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MostrarHits"
             android:exported="false" />
         <activity

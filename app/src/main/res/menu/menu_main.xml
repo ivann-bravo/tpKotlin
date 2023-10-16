@@ -5,8 +5,18 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/action_main_activity"
+        android:title="Menú principal"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_mostrar_hits"
         android:title="Buscador de hits"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_mostrar_albumes"
+        android:title="Mostrar albumes"
         app:showAsAction="never" />
 
     <item

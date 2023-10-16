@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -11,6 +13,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.bumptech.glide.Glide
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 
 class MostrarHits : AppCompatActivity() {
 
@@ -18,14 +23,21 @@ class MostrarHits : AppCompatActivity() {
     private lateinit var buttonSearch: Button
     private lateinit var textViewArtistInfo: TextView
     private lateinit var imageViewSongArt: ImageView
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mostrar_hits)
+
         editTextArtistName = findViewById(R.id.editTextArtistName)
         buttonSearch = findViewById(R.id.buttonSearch)
         textViewArtistInfo = findViewById(R.id.textViewArtistInfo)
         imageViewSongArt = findViewById(R.id.imageViewSongArt)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
 
         buttonSearch.setOnClickListener {
             val artistName = editTextArtistName.text.toString()
@@ -62,5 +74,41 @@ class MostrarHits : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        val mostrarHitsItem = menu.findItem(R.id.action_mostrar_hits)
+        mostrarHitsItem.isVisible = false
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_main_activity -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.action_mostrar_albumes -> {
+                val intent = Intent(this, AlbumListActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.action_cerrar_sesion -> {
+                // Borra los datos de sesión y redirige a la pantalla de inicio de sesión
+                val editor = sharedPreferences.edit()
+                editor.clear()
+                editor.apply()
+
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
